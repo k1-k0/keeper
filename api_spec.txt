@@ -1,0 +1,25 @@
+GET     / - home page
+
+GET     /login - login HTML page
+POST    /login - authotorize with given credentials
+
+GET     /register - registration HTML page
+POST    /register - send to API name:pass:conf:email and in successfull case redirect to "/"
+
+POST    /accounts - create new account
+GET     /accounts - list of user's accounts
+
+PUT     /account/{id} - change account number
+GET     /account/{id} - account with given ID
+POST    /account/{id}/history - add new history
+DELETE  /account/{id}/history - remove all history of account
+
+GET     /history/{id} - return history of account
+PUT     /history/{id} - change value of history
+DELETE  /history/{id} - remove history entity
+POST    /history/{id}/photo - add new photo
+PUT     /history/{id}/photo - change current photo
+
+GET     /photo/{id} - return history of account
+PUT     /photo/{id} - change photo
+DELETE  /photo/{id} - remove photo
