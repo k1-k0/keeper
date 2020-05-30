@@ -2,8 +2,6 @@ package com.electricity.keeper.controller;
 
 import com.electricity.keeper.repository.UserRepository;
 import com.electricity.keeper.service.UserServiceImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +21,6 @@ public class UserController {
 
     @Autowired
     private UserServiceImpl userService;
-
-    private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping(path = "/")
     public ResponseEntity<?> home() {
@@ -52,7 +48,6 @@ public class UserController {
             var user = userService.registerUser(username, password, confirm, email);
             return ResponseEntity.ok("Register success!");
         } catch (EntityExistsException e) {
-            logger.error(e.getMessage());
             return ResponseEntity.badRequest().body("Register failure");
         }
     }

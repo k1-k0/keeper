@@ -3,7 +3,6 @@ package com.electricity.keeper.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Entity
@@ -17,19 +16,18 @@ public class Photo {
     @OneToOne(mappedBy = "photo")
     private History history;
 
-    @NotBlank
-    private String path;
+    private String name;
 
     public long getId() {
         return id;
     }
 
-    public String getPath() {
-        return path;
+    public String getName() {
+        return name;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public History getHistory() {
@@ -46,11 +44,11 @@ public class Photo {
         if (!(o instanceof Photo)) return false;
         Photo photo = (Photo) o;
         return getId() == photo.getId() &&
-                getPath().equals(photo.getPath());
+                getName().equals(photo.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getPath());
+        return Objects.hash(getId(), getName());
     }
 }
